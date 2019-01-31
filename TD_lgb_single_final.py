@@ -448,8 +448,8 @@ te_org['h30min']=te_org['h30min']%100
 te_org['h30min']=te_org['h30min']//30
 te_org['hour']=te_org['hour'].astype(np.uint32)
 te_org['h30min']=te_org['hour']*10+te_org['h30min']
-te_org=Feature_agg(te_org, ['ip','device','os','app','h30min'], 'time', 'count') #30min为粒度，统计用户点击特定app的数量
-te_org=Feature_nunique(te_org, ['ip','device','os','h30min'], 'app') #30min为粒度，统计用户点击唯一app的数量
+te_org=Feature_agg(te_org, ['ip','device','os','app','h30min'], 'time', 'count') #30min level，num of clicks on apps
+te_org=Feature_nunique(te_org, ['ip','device','os','h30min'], 'app') #30min level，num of clicks on unique apps
 del te_org['h30min'] 
 
 te_org=Feature_nunique(te_org, ['ip'],'hour')
