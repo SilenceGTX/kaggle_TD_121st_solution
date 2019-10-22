@@ -69,7 +69,7 @@ ac_9=actime[actime['ctime']>=8160000] #Day 8 16:00:00~Day 9 15:59:59, as 3rd day
 del actime
 gc.collect()
 
-'''*******各种函数*******'''
+'''*******Functions*******'''
 def Feature_agg(df, features, target, agg_type):
     as_name=('_').join(features)+'_'+agg_type+'_'+target
     grp=df.groupby(features,as_index=False)[target].agg(agg_type).reset_index(drop=True).rename({target:as_name},axis=1)
